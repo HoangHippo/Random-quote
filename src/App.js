@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Header from "./components/Header/Header";
+import ColorPicker from "./components/ColorPicker/ColorPicker";
+import QuoteBox from "./components/QuoteBox";
+import ListTag from "./components/ListTag/ListTag";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+
+const colors = ["blue", "purple", "orange", "pink", "green"];
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeColor: colors[0],
+    };
+  }
+
+  handleActiveColor = (newColor) => {
+    this.setState({
+      activeColor: newColor,
+    });
+  };
+
+  render() {
+    const { activeColor } = this.state;
+    return (
+      <div className="App" style={{ backgroundColor: activeColor }}>
+        <div className="Header-box">
+          <Header title="Random quote machine"></Header>
+        </div>
+        <div className="Quote-wrapper">
+          <QuoteBox activeColor={activeColor}></QuoteBox>
+        </div>
+        <div className="ColorPicker-box">
+          <ColorPicker
+            colors={colors}
+            activeColor={activeColor}
+            handleActiveColor={this.handleActiveColor}
+          ></ColorPicker>
+        </div>
+        <div className="ListTag-box">
+          <ListTag></ListTag>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;

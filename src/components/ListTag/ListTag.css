@@ -1,0 +1,23 @@
+
+.TagBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.TagBox .Tag {
+    padding: 5px;
+    background-color: #fff;
+    margin: 5px;
+    cursor: pointer;
+    border: 0;
+    border-radius: 5px;  
+}
+
+.TagBox .Tag-active{
+    background-color: orange;
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+}
+

@@ -1,0 +1,18 @@
+.ColorPicker{
+    background-color: beige;
+    display: inline-flex;
+    padding: 3px;
+}
+
+.ColorPicker .color-item{
+    width: 32px;
+    height: 32px;
+    background-color: blue;
+    margin: 4px;
+    cursor: pointer;
+}
+
+.ColorPicker .color-item.active{
+   outline: 2px solid gray;
+   transform: scale(1.1);
+}
